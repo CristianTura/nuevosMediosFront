@@ -1,0 +1,11 @@
+table .edit{
+  margin-right: 10px;
+}
+img {
+  margin: auto;
+}
+@media (max-width:767px) {
+  img{
+    width: 200px;
+  }
+}

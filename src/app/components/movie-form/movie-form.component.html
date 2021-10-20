@@ -1,0 +1,30 @@
+<div class="col-md-6 offset-md-3 mt-3">
+  <div class="movie">
+    <div class="movie-body">
+      <form class="bg-secondary p-3">
+        <div class="form-group mb-1">
+          <input type="text" name="title" [(ngModel)]="movie.mov_title" placeholder="Title" class="form-control" autofocus>
+        </div>
+        <div class="form-group mb-1">
+          <input type="text" name="year" [(ngModel)]="movie.mov_year" placeholder="Year" class="form-control">
+        </div>
+        <div class="form-group mb-1">
+          <input type="text" name="time" [(ngModel)]="movie.mov_time"  placeholder="Time" class="form-control" >
+        </div>
+        <div class="form-group mb-1">
+          <input type="text" name="language" [(ngModel)]="movie.mov_lang"  placeholder="Language" class="form-control" >
+        </div>
+        <div class="form-group mb-1">
+          <input type="date" name="date" [(ngModel)]="movie.mov_dt_rel"   class="form-control" >
+        </div>
+        <div class="form-group mb-1">
+          <input type="text" name="country" [(ngModel)]="movie.mov_rel_country"  placeholder="Country" class="form-control" >
+        </div>
+        <button class="btn mt-2 w-100" (click)="edit ? updateMovie() : saveNewMovie() ">
+          ADD
+        </button>
+      </form>
+      <button [routerLink]="['/movies']"  class="btn btn-dark text-white mt-2 w-25 ms-3">Back</button>
+    </div>
+  </div>
+</div>

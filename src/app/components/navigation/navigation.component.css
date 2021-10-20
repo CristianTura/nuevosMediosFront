@@ -1,0 +1,20 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+nav{
+  font-family: 'Balsamiq Sans', cursive;
+} */
+nav .navbar-brand{
+ font-weight: bold;
+}
+nav ul .rounded-circle{
+  padding: 15px 20px;
+  background-color: #8E12C9;
+}
+nav ul .position-absolute{
+  right: 5vw;
+}
+@media (max-width:767px) {
+  nav ul .rounded-circle{
+    padding: 10px 15px;
+    background-color: #8E12C9;
+  }
+}
