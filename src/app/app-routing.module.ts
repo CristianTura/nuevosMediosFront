@@ -15,11 +15,7 @@ const routes: Routes = [
     component: MovieListComponent,
   },
   {
-    path: 'movies/add',
-    component: MovieFormComponent,
-  },
-  {
-    path: 'movies/edit/:id',
+    path: 'movies/watch/:id',
     component: MovieFormComponent,
   }
 ];

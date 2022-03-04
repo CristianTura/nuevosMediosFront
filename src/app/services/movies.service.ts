@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MoviesService {
-  API_URI = 'https://moviescrudangular.herokuapp.com';
+  API_URI = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
@@ -20,15 +20,4 @@ export class MoviesService {
     return this.http.get(`${this.API_URI}/movies/${id}`);
   }
 
-  deleteMovie(id: string) {
-    return this.http.delete(`${this.API_URI}/movies/${id}`);
-  }
-
-  saveMovie(movie: Movie) {
-    return this.http.post(`${this.API_URI}/movies`, movie);
-  }
-
-  updateMovie(id: string | number, updatedMovie: Movie): Observable<any> {
-    return this.http.put(`${this.API_URI}/movies/${id}`, updatedMovie);
-  }
 }

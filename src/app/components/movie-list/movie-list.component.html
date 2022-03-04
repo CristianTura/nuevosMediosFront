@@ -1,37 +1,37 @@
-<div class="col-md-8 offset-md-2 col-10 offset-1  d-flex flex-column justify-content-center table-responsive-md">
-  <img class="my-2" src="../../../assets/moviesImg.png" alt="Movies">
-  <table class="table bg-secondary">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col title">Title</th>
-        <th scope="col">Year</th>
-        <th scope="col">Time</th>
-        <th scope="col">Language</th>
-        <th scope="col" >Date</th>
-        <th scope="col">Country</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let movie of movies">
-        <th scope="row">{{movie.mov_id}}</th>
-        <td>{{movie.mov_title}}</td>
-        <td>{{movie.mov_year}}</td>
-        <td>{{movie.mov_time}}</td>
-        <td >{{movie.mov_lang}}</td>
-        <td >{{movie.mov_dt_rel  | date: 'yyyy-MM-dd'}}</td>
-        <td >{{movie.mov_rel_country}}</td>
-        <td class="d-flex justify-content-around">
-          <button [routerLink]="['/movies/edit', movie.mov_id]" class="btn btn-success py-0 px-2 edit">
-            <i class="fa-solid fa-pen-to-square"></i>
-          </button>
-          <button class="btn btn-danger py-0 px-2" (click)="deleteMovie(movie.mov_id)">
-            <i class="fa-solid fa-trash-can"></i>
-          </button>
-        </td>   
-      </tr>
-    </tbody>
-  </table>
-
+<div
+  class="container position-relative col-md-8 col-10 pb-5 d-flex flex-column justify-content-center m-auto w-100"
+>
+  <img class="my-2 my-3" src="../../../assets/moviesImg.png" alt="Movies" />
+  <select
+    [(ngModel)]="opcionSeleccionado"
+    (change)="filterMovies()"
+    class="form-select position-absolute"
+    style="width: 200px; top: 25px; right: -20px"
+    aria-label="Default select example"
+  >
+    <option selected>Categoria</option>
+    <option value="Animación">Animación</option>
+    <option value="Superhéroes">Superhéroes</option>
+    <option value="Acción">Acción</option>
+    <option value="Ciencia ficción">Ciencia ficción</option>
+    <option value="Aventura">Aventura</option>
+    <option value="Fantasía">Fantasía</option>
+    <option value="Musical">Musical</option>
+    <option value="Comedia">Comedia</option>
+  </select>
+  <div class="d-flex justify-content-around gap-5 flex-wrap">
+    <div *ngFor="let movie of movies" class="card" style="width: 15rem">
+      <img src="{{ movie.mov_img }}" alt="{{ movie.mov_title }}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.mov_title }}</h5>
+        <p class="card-text">{{ movie.mov_descrip }}</p>
+        <button
+          [routerLink]="['watch', movie.mov_id]"
+          class="btn btn-success py-0 px-2 edit"
+        >
+          <i class="fa-solid fa-eye"></i> See more
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

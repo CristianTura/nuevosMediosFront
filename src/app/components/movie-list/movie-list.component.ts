@@ -10,6 +10,7 @@ import { MoviesService } from '../../services/movies.service'
 export class MovieListComponent implements OnInit {
 
   movies: any = []
+  opcionSeleccionado: string = ''
 
   constructor(private moviesService: MoviesService) { }
 
@@ -26,16 +27,19 @@ export class MovieListComponent implements OnInit {
     )
   }
 
-  deleteMovie(id: string){
-    this.moviesService.deleteMovie(id).subscribe(
-      res => {
-        console.log(res)
-        this.getMovies();
-      },
-      err => console.log(err)
-    )
-  }
+  filterMovies() {
 
+    if (this.opcionSeleccionado === 'Categoria'  ) {
+      this.getMovies()
+    } else {
+      const filter = this.movies.filter((movie: { mov_labels: string | string[]; }) => {
+        return movie.mov_labels.includes(this.opcionSeleccionado)
+      })
+
+      this.movies = filter
+    }
+  
+  }
 
 
 }
