@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MoviesService {
-  API_URI = 'http://localhost:3000';
+  API_URI = 'https://nuevosmedios.herokuapp.com/';
 
   constructor(private http: HttpClient) {}
 
